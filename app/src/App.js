@@ -14,8 +14,10 @@ const App = () => {
     try {
       const wasm = await import('rust-wasm-react-calculator')
       setWasm(wasm)
+    } catch {
+      alert('An error occurred loading the WASM module. Please refresh to try again');
     } finally {
-      console.log('Wasm loaded');
+      console.log('Wasm has loaded');
     }
   }
 

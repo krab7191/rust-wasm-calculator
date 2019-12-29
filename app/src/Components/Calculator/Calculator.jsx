@@ -19,6 +19,11 @@ const Calculator = props => {
 
   const clickHandler = e => {
     const { innerText } = e.target
+    testKey(innerText.toLowerCase(), null)
+  }
+
+  const handleInputChange = e => {
+    testKey(e.key, e.keyCode)
   }
 
   // Make the button rows
@@ -37,10 +42,8 @@ const Calculator = props => {
   const [showToast, setShowToast] = useState(false)
   const [toastMessage, setToastMessage] = useState('')
   const [hasOperator, setHasOperator] = useState(false)
-  const [valid, setValid] = useState(false)
 
-  const handleInputChange = e => {
-    const { key, keyCode } = e
+  const testKey = (key, keyCode) => {
     const keys = [
       '1',
       '2',
@@ -82,7 +85,6 @@ const Calculator = props => {
       calculationState.length > 0
         ? calculationState[calculationState.length - 1]
         : ''
-    console.log(`Last: ${last}`)
     if (
       (char === 'backspace' || char === 'delete') &&
       calculationState.length > 0
@@ -90,17 +92,11 @@ const Calculator = props => {
       if (opers.includes(calculationState[calculationState.length - 1])) {
         setHasOperator(false)
       }
-      if (!hasOperator) {
-        setValid(false)
-      }
-      if (hasOperator && !num.includes(last)) {
-        setValid(false)
-      }
       setCalculationState(
         calculationState.substring(0, calculationState.length - 1)
       )
-    } else if (opers.includes(char)) {
-      if (!hasOperator) {
+    } else if (opers.includes(char) || char === 'x') {
+      if (!hasOperator && num.includes(last)) {
         setHasOperator(true)
         return true
       } else {
@@ -108,7 +104,8 @@ const Calculator = props => {
       }
     } else if (char === '=' || char === 'enter') {
       if (hasOperator && num.includes(last)) {
-        calculate && calculate(calculationState + '')
+        calculate && calculate(calculationState)
+        // setHasOperator(false)
       }
       return false
     } else if (last === '') {
@@ -149,6 +146,7 @@ const Calculator = props => {
             type='text'
             value={calculationState}
             onKeyUp={e => handleInputChange(e)}
+            onChange={handleInputChange}
           />
         </div>
         {grid}
