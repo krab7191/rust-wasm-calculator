@@ -25,7 +25,7 @@ const App = () => {
     <div className='App'>
       <header className='App-header'>
         <div className='calc-container'>
-          <Calculator calculate={wasm ? wasm.greet : null} />
+          <Calculator calculate={wasm ? wasm.calculate : null} />
         </div>
       </header>
     </div>

@@ -1,5 +1,9 @@
+mod math;
+mod parser;
 mod utils;
 
+use math::*;
+use parser::divide_equation;
 use wasm_bindgen::prelude::*;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -9,11 +13,18 @@ use wasm_bindgen::prelude::*;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-extern "C" {
-    fn alert(s: &str);
-}
-
-#[wasm_bindgen]
-pub fn greet(name: String) {
-    alert(&format!("Hello, {}", name)); // Alert requires 1 argument; &format! Creates a `std::string::String` using interpolation of runtime expressions.
+pub fn calculate(expression: String) -> String {
+  let equation_parts_tuple = divide_equation(expression);
+  let operator: String = equation_parts_tuple.1;
+  let a: f64 = equation_parts_tuple.0;
+  let b: f64 = equation_parts_tuple.2;
+  match operator.as_ref() {
+    "+" => add_two_numbers(a, b),
+    "-" => subtract_two_numbers(a, b),
+    "X" => multiply_two_numbers(a, b),
+    "/" => divide_two_numbers(a, b),
+    "%" => get_remainder(a, b),
+    // Handle the rest of cases
+    _ => "Something failed...".to_string(),
+  }
 }

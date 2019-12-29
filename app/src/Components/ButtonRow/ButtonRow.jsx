@@ -6,7 +6,14 @@ const ButtonRow = props => {
   return (
     <div className='calculator-row'>
       {chars.map((char, i) => {
-        return <CalculatorButton key={i} text={char} handler={handler} />
+        return (
+          <CalculatorButton
+            key={i}
+            text={char}
+            handler={handler}
+            size={(char === '0' || char === 'Clear') && 'double'}
+          />
+        )
       })}
     </div>
   )

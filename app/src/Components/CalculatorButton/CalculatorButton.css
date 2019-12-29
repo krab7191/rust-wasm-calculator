@@ -1,7 +1,6 @@
 div.calculator-button {
   font-size: 2rem;
   text-align: center;
-  width: 25%;
   border: .5rem solid #b7410e;
   padding: .5rem 0;
   cursor: pointer;

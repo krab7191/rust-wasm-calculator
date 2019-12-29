@@ -11,10 +11,11 @@ const Calculator = props => {
   const { calculate } = props
 
   const rows = [
-    ['7', '8', '9', '%'],
-    ['4', '5', '6', 'X'],
-    ['1', '2', '3', '-'],
-    ['0', '.', '+', '=']
+    ['7', '8', '9', '+'],
+    ['4', '5', '6', '-'],
+    ['1', '2', '3', 'X'],
+    ['0', '.', '/'],
+    ['Clear', '=', '%']
   ]
 
   const clickHandler = e => {
@@ -63,7 +64,9 @@ const Calculator = props => {
       '=',
       '.',
       'x',
-      'X'
+      'X',
+      '/',
+      'clear'
     ]
     if (
       keys.includes(key) ||
@@ -73,19 +76,26 @@ const Calculator = props => {
     ) {
       const valid = determineCharValid(key.toLowerCase())
       if (valid) {
-        setCalculationState(calculationState + key)
+        if (key.toLowerCase() === 'x' || key === '*') {
+          setCalculationState(calculationState + 'X')
+        } else {
+          setCalculationState(calculationState + key)
+        }
       }
     }
   }
 
   const determineCharValid = char => {
     const num = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-    const opers = ['+', '-', '*', 'x', '^', '%']
+    const opers = ['+', '-', '*', 'x', 'X', '^', '%', '/']
     const last =
       calculationState.length > 0
         ? calculationState[calculationState.length - 1]
         : ''
-    if (
+    if (char === 'clear') {
+      setCalculationState('')
+      setHasOperator(false)
+    } else if (
       (char === 'backspace' || char === 'delete') &&
       calculationState.length > 0
     ) {
@@ -104,8 +114,21 @@ const Calculator = props => {
       }
     } else if (char === '=' || char === 'enter') {
       if (hasOperator && num.includes(last)) {
-        calculate && calculate(calculationState)
-        // setHasOperator(false)
+        let result
+        calculate && (result = calculate(calculationState))
+        if (result === 'Something failed...') {
+          alert(result)
+        } else {
+          console.log(result)
+          setCalculationState(result)
+          setHasOperator(false)
+          copyElemText(document.querySelector('div.display-row'))
+          setShowToast(true)
+          setToastMessage(`${result} copied to clipboard!`)
+          window.setTimeout(() => {
+            setShowToast(false)
+          }, 2000)
+        }
       }
       return false
     } else if (last === '') {
