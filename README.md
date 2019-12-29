@@ -13,5 +13,5 @@ You need [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
 2. cd into cloned directory
 3. `cd lib && wasm-pack build`
 4. `sudo npm link`
-5. `cd ../app && npm link rust-wasm-react-calculator`
-6. npm i && npm run start
+5. `cd ../app && sudo npm link rust-wasm-react-calculator`
+6. `npm i && npm run start`
