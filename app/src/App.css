@@ -1,3 +1,10 @@
+.App-header {
+  width: calc(100% - 2rem);
+  min-height: 4rem;
+  text-align: center;
+  padding: 1rem;
+}
+
 div.calc-container {
   max-width: 480px;
   max-height: 768px;

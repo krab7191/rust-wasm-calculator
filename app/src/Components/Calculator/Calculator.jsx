@@ -121,7 +121,7 @@ const Calculator = props => {
         } else {
           setCalculationState(result)
           setHasOperator(false)
-          copyElemText(document.querySelector('div.display-row'))
+          copyElemText(document.querySelector('#input-elem'))
           setShowToast(true)
           setToastMessage(`${result} copied to clipboard!`)
           window.setTimeout(() => {
@@ -169,6 +169,7 @@ const Calculator = props => {
             value={calculationState}
             onKeyUp={e => handleInputChange(e)}
             onChange={handleInputChange}
+            id='input-elem'
           />
         </div>
         {grid}
