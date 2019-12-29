@@ -1,0 +1,28 @@
+{
+  "name": "rust-wasm-react-calculator",
+  "version": "0.1.0",
+  "description": "A simple calculator with logic written in Rust and React, the Rust compiled to Wasm and imported as a react package.'",
+  "main": "./app/build/index.html",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "install": "cd app && npm install",
+    "build": "cd app && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krab7191/rust-wasm-calculator.git"
+  },
+  "keywords": [
+    "Rust",
+    "React",
+    "Wasm"
+  ],
+  "author": "Karsten Rabe <krab7191>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krab7191/rust-wasm-calculator/issues"
+  },
+  "homepage": "https://github.com/krab7191/rust-wasm-calculator#readme"
+}
