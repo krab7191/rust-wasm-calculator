@@ -1,0 +1,31 @@
+div#calculator-container, div.calculator-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+div#calculator-container {
+  background-color: rgba(183, 65, 14, .2);
+  flex-direction: column;
+  width: calc(100% - 3rem);
+  margin: 1rem auto;
+  padding: .5rem;
+  border: 1.5rem solid #b7410e;
+}
+
+.display-row {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 3rem);
+  border: .5rem solid #b7410e;
+  padding: 1rem;
+  font-size: 2rem;
+  justify-content: flex-end;
+}
+
+.br-2 {
+  border-radius: 2rem;
+}
+
+.br-half {
+  border-radius: .5rem;
+}

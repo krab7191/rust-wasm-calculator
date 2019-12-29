@@ -1,0 +1,12 @@
+div.calc-container {
+  max-width: 480px;
+  max-height: 768px;
+}
+
+.rust-color {
+  color: #b7410e;
+}
+
+.rust-background {
+  background-color: #b7410e;
+}
