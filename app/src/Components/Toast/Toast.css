@@ -1,0 +1,16 @@
+div#toast-container {
+  background-color: lightgreen;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  min-width: 10rem;
+  min-height: 3rem;
+  border-radius: .2rem;
+  text-align: center;
+  color: white;
+  padding: .5rem;
+}
+
+div#toast-container>p {
+  vertical-align: middle;
+}

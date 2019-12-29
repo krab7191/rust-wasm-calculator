@@ -2,12 +2,11 @@ import React from 'react'
 import CalculatorButton from '../CalculatorButton'
 
 const ButtonRow = props => {
-  const { chars } = props
-  console.log(props, chars)
+  const { chars, handler } = props
   return (
     <div className='calculator-row'>
       {chars.map((char, i) => {
-        return <CalculatorButton key={i} text={char} />
+        return <CalculatorButton key={i} text={char} handler={handler} />
       })}
     </div>
   )

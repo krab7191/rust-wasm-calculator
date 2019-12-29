@@ -4,7 +4,7 @@ div#calculator-container, div.calculator-row {
 }
 
 div#calculator-container {
-  background-color: rgba(183, 65, 14, .2);
+  background-color: rgba(190, 190, 190, .5);
   flex-direction: column;
   width: calc(100% - 3rem);
   margin: 1rem auto;
@@ -15,11 +15,22 @@ div#calculator-container {
 .display-row {
   display: flex;
   flex-direction: row;
-  width: calc(100% - 3rem);
+  width: calc(100% - 1rem);
   border: .5rem solid #b7410e;
-  padding: 1rem;
   font-size: 2rem;
   justify-content: flex-end;
+}
+
+.display-row>input {
+  font-size: 1rem;
+  width: 100%;
+  padding: .6rem;
+  background-color: rgba(190, 190, 190, .2);
+  border: 0;
+}
+
+div.display-row>input:focus {
+  outline: none;
 }
 
 .br-2 {

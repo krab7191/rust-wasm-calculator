@@ -2,7 +2,12 @@ import React from 'react'
 import './CalculatorButton.css'
 
 const CalculatorButton = props => {
-  return <div className='calculator-button br-half'>{props.text}</div>
+  const { text, handler } = props
+  return (
+    <div className='calculator-button br-half' onClick={e => handler(e)}>
+      {text}
+    </div>
+  )
 }
 
 export default CalculatorButton
