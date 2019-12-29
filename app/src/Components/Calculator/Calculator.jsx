@@ -119,7 +119,6 @@ const Calculator = props => {
         if (result === 'Something failed...') {
           alert(result)
         } else {
-          console.log(result)
           setCalculationState(result)
           setHasOperator(false)
           copyElemText(document.querySelector('div.display-row'))
