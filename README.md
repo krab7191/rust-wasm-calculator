@@ -1,7 +1,8 @@
 # rust-wasm-calculator
 A simple calculator with logic written in Rust, compiled to Wasm, and rendered with React.js
 
-# [deployed site here](https://rust-calculator.netlify.com/)
+## [deployed site here](https://rust-calculator.netlify.com/)
+## [npm package here](https://www.npmjs.com/package/rust-wasm-react-calculator)
 
 Instructions to run locally
 
