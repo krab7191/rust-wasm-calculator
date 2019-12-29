@@ -119,14 +119,16 @@ const Calculator = props => {
         if (result === 'Something failed...') {
           alert(result)
         } else {
-          setCalculationState(result)
           setHasOperator(false)
-          copyElemText(document.querySelector('#input-elem'))
-          setShowToast(true)
-          setToastMessage(`${result} copied to clipboard!`)
+          setCalculationState(result)
           window.setTimeout(() => {
-            setShowToast(false)
-          }, 2000)
+            copyElemText(document.querySelector('#input-elem'))
+            setShowToast(true)
+            setToastMessage(`${result} copied to clipboard!`)
+            window.setTimeout(() => {
+              setShowToast(false)
+            }, 2000)
+          }, 100)
         }
       }
       return false
