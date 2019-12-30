@@ -4,9 +4,12 @@ A simple calculator with logic written in Rust, compiled to Wasm, and rendered w
 ## [deployed site here](https://rust-calculator.netlify.com/)
 ## [npm package here](https://www.npmjs.com/package/rust-wasm-react-calculator)
 
-Instructions to run locally
 
-You need the rust toolchain first: [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
+## Instructions to run locally
+
+You need [node](https://nodejs.org/en/) 
+
+You need the [rust toolchain](https://www.rust-lang.org/tools/install)
 
 You need [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
 
