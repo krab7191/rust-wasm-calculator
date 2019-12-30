@@ -24,6 +24,7 @@ pub fn calculate(expression: String) -> String {
     "X" => multiply_two_numbers(a, b),
     "/" => divide_two_numbers(a, b),
     "%" => get_remainder(a, b),
+    "^" => calc_exponent(a, b),
     // Handle the rest of cases
     _ => "Something failed...".to_string(),
   }

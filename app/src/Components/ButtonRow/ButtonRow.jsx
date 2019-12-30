@@ -11,7 +11,7 @@ const ButtonRow = props => {
             key={i}
             text={char}
             handler={handler}
-            size={(char === '0' || char === 'Clear') && 'double'}
+            size={char === 'Clear' && 'double'}
           />
         )
       })}

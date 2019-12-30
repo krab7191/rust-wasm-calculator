@@ -18,3 +18,8 @@ pub fn get_remainder(a: f64, b: f64) -> String {
   let sum: f64 = a % b;
   sum.to_string()
 }
+
+pub fn calc_exponent(a: f64, b: f64) -> String {
+  let sum: f64 = a.powf(b);
+  sum.to_string()
+}
